@@ -48,7 +48,7 @@ export default function Canal() {
 
     async function salvar3() {
         let url = 'http://localhost:5010/usuario';
-        let data = usuario
+        let data ={ usuario}
 
         let resp = await axios.post(url, data);
         alert(resp.data.idUsuario);
@@ -71,6 +71,9 @@ export default function Canal() {
     return (
         <div className="pagina-canal">
             <Link to='/buscar'> Consultar </Link>
+            <Link to='/alterar'> Alterar </Link>
+            <Link to='/excluir'> Excluir </Link>
+            
             <div className='canal'>
                 <h1>Canal</h1>
                 <div className='form'>

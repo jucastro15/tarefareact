@@ -1,27 +1,26 @@
-import { useState } from 'react'
-import './index.scss'
-
-import axios from 'axios'
-
-
+import { useState } from 'react';
+import './index.scss';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Consultar() {
     const [lista, setLista] = useState([]);
     const [listacanal, setListacanal] = useState([]);
-    const[nome, setNome] = useState([]);
-    const [favorito, setFavorito] = useState([])
-
+    const [nome, setNome] = useState([]);  
+    const [favorito, setFavorito] = useState([]);  
 
     async function buscar() {
         const url = 'http://localhost:5010/canal';
         let resp = await axios.get(url);
         setListacanal(resp.data);
     }
+
     async function programacanal() {
         const url = 'http://localhost:5010/canalProg';
         let resp = await axios.get(url);
         setLista(resp.data);
     }
+
     async function user() {
         const url = 'http://localhost:5010/usuario';
         let resp = await axios.get(url);
@@ -33,129 +32,112 @@ export default function Consultar() {
         let resp = await axios.get(url);
         setFavorito(resp.data);
     }
-    
 
     return (
         <div className='pagina-buscar'>
+            <Link to='/alterar'> Alterar </Link>
+            <Link to='/excluir'> Excluir </Link>
+            <Link to='/'> Inserir </Link>
+        
+            <div className='buscar'>
+                <h1> CONSULTAR CANAL </h1>
+                <button onClick={buscar}>Buscar</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Canal</th>
+                            <th>Nome</th>
+                            <th>Número</th>
+                            <th>Aberto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {listacanal.map((item, key) => (
+                            <tr key={key}>
+                                <td>{item.id_canal}</td>
+                                <td>{item.nm_canal}</td>
+                                <td>{item.nr_canal}</td>
+                                <td>{item.bt_aberto ? 'Sim' : 'Não'}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
             <div className='buscar'>
-            <h1> CONSULTAR </h1>
-
-            <button onClick={buscar}>Buscar</button>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Canal</th>
-                        <th>Nome</th>
-                        <th>Número</th> 
-                        <th>Aberto</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {listacanal.map(item =>
+                <h1> CONSULTAR PROGRAMAS </h1>
+                <button onClick={programacanal}>Buscar</button>
+                <table>
+                    <thead>
                         <tr>
-                            <td>{item.id_canal}</td>
-                            <td>{item.nm_canal}</td>
-                            <td>{item.nr_canal}</td>
-                            <td>{item.bt_aberto ? 'Sim' : 'Não'}</td>
-                  
+                            <th>Id Programa</th>
+                            <th>Id Canal</th>
+                            <th>Nome Programa</th>
+                            <th>Genero</th>
+                            <th>Hora</th>
                         </tr>
-                    )}
-                </tbody>
+                    </thead>
+                    <tbody>
+                        {lista.map((item, key) => (
+                            <tr key={key}>
+                                <td>{item.id_canal_programa}</td>
+                                <td>{item.id_canal}</td>
+                                <td>{item.nm_programa}</td>
+                                <td>{item.ds_genero}</td>
+                                <td>{item.hr_programa}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
-            </table>
-
-           </div>
-
-           
-           <div className='buscar'>
-            <h1> CONSULTAR </h1>
-
-            <button onClick={programacanal}>Buscar</button>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id Programa</th>
-                        <th>Id Canal</th>
-                        <th>Nome Programa</th> 
-                        <th>Genero</th>
-                        <th>Hora</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {lista.map((item,key) =>
-                        <tr key={key}>
-                            <td>{item.id_canal_programa}</td>
-                            <td>{item.id_canal}</td>
-                            <td>{item.nm_programa}</td>
-                            <td>{item.ds_genero}</td>
-                            <td>{item.hr_programa}</td>
+   
+            <div className='buscar'>
+                <h1> CONSULTAR USUÁRIOS </h1>
+                <button onClick={user}>Buscar</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id Usuario</th>
+                            <th>Nome</th>
                         </tr>
-                    )}
-                </tbody>
+                    </thead>
+                    <tbody>
+                        {nome.map((item, key) => (
+                            <tr key={key}>
+                                <td>{item.id_usuario}</td>
+                                <td>{item.nm_usuario}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
-            </table>
-
-           </div>
-
-
-           <div className='buscar'>
-            <h1> CONSULTAR </h1>
-
-            <button onClick={user}>Buscar</button>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Id Usuario</th>
-                        <th>Nome</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {nome.map(item=>
-                        <tr >
-                            <td>{item.id_usuario}</td>
-                            <td>{item.nm_usuario}</td>
+            
+            <div className='buscar'>
+                <h1> CONSULTAR PROGRAMAS FAVORITOS </h1>
+                <button onClick={favo}>Buscar</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Usuário</th>
+                            <th>Programa</th>
+                            <th>Avaliação</th>
                         </tr>
-                    )}
-                </tbody>
-
-            </table>
-
-           </div>
-
-           <div className='buscar'>
-    <h1> CONSULTAR </h1>
-
-    <button onClick={favo}>Buscar</button>
-
-    <table>
-        <thead>
-            <tr>
-                  <th>id</th>
-                <th>Usuário</th>
-                <th>Programa</th>
-                <th>Avaliação</th> 
-            </tr>
-        </thead>
-
-        <tbody>
-            {favorito.map(item =>
-                <tr>
-                     <td>{item.id_programa_favorito}</td>
-                    <td>{item.nm_usuario}</td>
-                    <td>{item.nm_programa}</td>
-                    <td>{item.vl_avaliacao}</td>
-                </tr>
-            )}
-        </tbody>
-    </table>
-          </div>
+                    </thead>
+                    <tbody>
+                        {favorito.map((item, key) => (
+                            <tr key={key}>
+                                <td>{item.id_programa_favorito}</td>
+                                <td>{item.nm_usuario}</td>
+                                <td>{item.nm_programa}</td>
+                                <td>{item.vl_avaliacao}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     )
