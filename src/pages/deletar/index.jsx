@@ -61,8 +61,11 @@ async function excluir4() {
 }
 
 return (
-    <div className="pagina-canal">
+    <div className="pagina-delete">
         <Link to='/buscar'> Consultar </Link>
+        <Link to='/alterar'> Alterar </Link>
+        <Link to='/excluir'> Excluir </Link>
+            
         <div className='canal'>
             <h1>Canal</h1>
             <div className='form'>

@@ -15,7 +15,7 @@ export default function Alterar() {
 
     const [usuario, setUsuario] = useState('');
     const [id_use, setId_use] = useState(0);
-    
+
     const [id_programa, setId_Programa] = useState(0);
     const [avaliacao, setAvaliacao] = useState(0);
 
@@ -88,7 +88,7 @@ export default function Alterar() {
     }
 
     return (
-        <div className="pagina-canal">
+        <div className="pagina-alterar">
             <Link to='/buscar'> Consultar </Link>
 
             <div className='canal'>
