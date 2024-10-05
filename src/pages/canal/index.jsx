@@ -70,9 +70,12 @@ export default function Canal() {
 
     return (
         <div className="pagina-canal">
+            <div className='botoes'>
             <Link to='/buscar'> Consultar </Link>
             <Link to='/alterar'> Alterar </Link>
             <Link to='/excluir'> Excluir </Link>
+            </div>
+          
             
             <div className='canal'>
                 <h1>Canal</h1>

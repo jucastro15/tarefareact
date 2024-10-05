@@ -62,10 +62,13 @@ async function excluir4() {
 
 return (
     <div className="pagina-delete">
+        <div className='botoes'>
         <Link to='/buscar'> Consultar </Link>
         <Link to='/alterar'> Alterar </Link>
-        <Link to='/excluir'> Excluir </Link>
-            
+        <Link to='/'> Inserir </Link>
+        </div>
+
+
         <div className='canal'>
            <h2> Canal</h2>
             <div className='form'>

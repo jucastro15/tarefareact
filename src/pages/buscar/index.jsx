@@ -36,10 +36,12 @@ export default function Consultar() {
 
     return (
         <div className='pagina-buscar'>
+
+            <div className='botoes'>
             <Link to='/alterar'> Alterar </Link>
             <Link to='/excluir'> Excluir </Link>
             <Link to='/'> Inserir </Link>
-        
+           </div>
             <div className='buscar'>
                 <h1> CONSULTAR CANAL </h1>
                 <button onClick={buscar}>Buscar</button>
