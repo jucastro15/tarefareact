@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 export default function Consultar() {
+    
     const [lista, setLista] = useState([]);
     const [listacanal, setListacanal] = useState([]);
     const [nome, setNome] = useState([]);  
@@ -54,10 +55,10 @@ export default function Consultar() {
                     <tbody>
                         {listacanal.map((item, key) => (
                             <tr key={key}>
-                                <td>{item.id_canal}</td>
-                                <td>{item.nm_canal}</td>
-                                <td>{item.nr_canal}</td>
-                                <td>{item.bt_aberto ? 'Sim' : 'Não'}</td>
+                                <td>{item.id_canal ? item.id_canal : 'Inativo'}</td>
+                                <td>{item.nm_canal ? item.nm_canal : 'Inativo'}</td>
+                                <td>{item.nr_canal ? item.nr_canal : 'Inativo'}</td>
+                                <td>{item.bt_aberto !== null && item.bt_aberto !== undefined ? (item.bt_aberto ? 'Sim' : 'Não') : 'Inativo'}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -80,11 +81,11 @@ export default function Consultar() {
                     <tbody>
                         {lista.map((item, key) => (
                             <tr key={key}>
-                                <td>{item.id_canal_programa}</td>
-                                <td>{item.id_canal}</td>
-                                <td>{item.nm_programa}</td>
-                                <td>{item.ds_genero}</td>
-                                <td>{item.hr_programa}</td>
+                                <td>{item.id_canal_programa ? item.id_canal_programa : 'Inativo'}</td>
+                                <td>{item.id_canal ? item.id_canal : 'Inativo'}</td>
+                                <td>{item.nm_programa ? item.nm_programa : 'Inativo'}</td>
+                                <td>{item.ds_genero ? item.ds_genero : 'Inativo'}</td>
+                                <td>{item.hr_programa ? item.hr_programa : 'Inativo'}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -105,8 +106,8 @@ export default function Consultar() {
                     <tbody>
                         {nome.map((item, key) => (
                             <tr key={key}>
-                                <td>{item.id_usuario}</td>
-                                <td>{item.nm_usuario}</td>
+                                <td>{item.id_usuario ? item.id_usuario : 'Inativo'}</td>
+                                <td>{item.nm_usuario ? item.nm_usuario : 'Inativo'}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -129,10 +130,10 @@ export default function Consultar() {
                     <tbody>
                         {favorito.map((item, key) => (
                             <tr key={key}>
-                                <td>{item.id_programa_favorito}</td>
-                                <td>{item.nm_usuario}</td>
-                                <td>{item.nm_programa}</td>
-                                <td>{item.vl_avaliacao}</td>
+                                <td>{item.id_programa_favorito ? item.id_programa_favorito : 'inativo'}</td>
+                                <td>{item.nm_usuario ? item.nm_usuario : 'inativo'}</td>
+                                <td>{item.nm_programa ? item.nm_programa : 'inativo'}</td>
+                                <td>{item.vl_avaliacao ? item.vl_avaliacao : 'inativo'}</td>
                             </tr>
                         ))}
                     </tbody>
