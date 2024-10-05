@@ -67,7 +67,7 @@ return (
         <Link to='/excluir'> Excluir </Link>
             
         <div className='canal'>
-            <h1>Canal</h1>
+           <h2> Canal</h2>
             <div className='form'>
                 <input
                     type="number"
@@ -77,6 +77,8 @@ return (
                 />
                 <button onClick={excluir1}>Excluir</button>
             </div>
+
+          <h2> Programação</h2>
             <div className='form'>
                 <input
                     type="number"
@@ -86,6 +88,8 @@ return (
                 />
                 <button onClick={excluir2}>Excluir</button>
             </div>
+            
+            <h2> Usuário</h2>
             <div className='form'>
                 <input
                     type="number"
@@ -95,6 +99,8 @@ return (
                 />
                 <button onClick={excluir3}>Excluir</button>
             </div>
+
+            <h2> Programa Favorito</h2>
             <div>
                 <div className='form'>
                     <input

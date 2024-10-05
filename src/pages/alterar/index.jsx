@@ -20,7 +20,7 @@ export default function Alterar() {
     const [avaliacao, setAvaliacao] = useState(0);
 
  
-    async function salvar() {
+    async function alterar() {
         let url = `http://localhost:5010/canal/${idCanal}`;
         let data = {
             "canal": nome,
@@ -38,7 +38,7 @@ export default function Alterar() {
     }
 
   
-    async function salvar2() {
+    async function alterar2() {
         let url = `http://localhost:5010/canalProg/${id_programa}`;
         let data = {
             "id_canal": idCanal,
@@ -57,7 +57,7 @@ export default function Alterar() {
     }
 
 
-    async function salvar3() {
+    async function alterar3() {
         let url = `http://localhost:5010/usuario/${id_use}`;  
         let data = { "usuario": usuario };
 
@@ -70,7 +70,7 @@ export default function Alterar() {
         }
     }
 
-    async function salvar4() {
+    async function alterar4() {
         let url = `http://localhost:5010/programaFavorito/${id_programa}`;  
         let data = {
             "id_use": id_use,
@@ -117,7 +117,7 @@ export default function Alterar() {
                         checked={aberto}
                         onChange={(e) => setAberto(e.target.checked)}
                     />
-                    <button onClick={salvar}>Salvar</button>
+                    <button onClick={alterar}>alterar</button>
                 </div>
             </div>
 
@@ -154,7 +154,7 @@ export default function Alterar() {
                         value={hora}
                         onChange={(e) => setHora(e.target.value)}
                     />
-                    <button onClick={salvar2}>Salvar</button>
+                    <button onClick={alterar2}>alterar</button>
                 </div>
             </div>
 
@@ -173,7 +173,7 @@ export default function Alterar() {
                         value={usuario}
                         onChange={(e) => setUsuario(e.target.value)}
                     />
-                    <button onClick={salvar3}>Salvar</button>
+                    <button onClick={alterar3}>alterar</button>
                 </div>
             </div>
 
@@ -198,7 +198,7 @@ export default function Alterar() {
                         value={avaliacao}
                         onChange={(e) => setAvaliacao(e.target.value)}
                     />
-                    <button onClick={salvar4}>Salvar</button>
+                    <button onClick={alterar4}>alterar</button>
                 </div>
             </div>
         </div>
